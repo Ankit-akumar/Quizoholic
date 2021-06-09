@@ -10,10 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Quizoholic">
         <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.Quizoholic.NoActionBar" />
+        <activity
             android:name=".SignUpActivity"
             android:theme="@style/CustomNoActionBarTheme" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".SignInActivity"
             android:theme="@style/CustomNoActionBarTheme" />
         <activity
             android:name=".SplashScreen"
@@ -24,7 +28,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

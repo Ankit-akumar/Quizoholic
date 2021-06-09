@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "732417045288",
+    "project_id": "quizoholic-98f4b",
+    "storage_bucket": "quizoholic-98f4b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732417045288:android:10c6c354e36aa569bed61d",
+        "android_client_info": {
+          "package_name": "com.example.quizoholic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732417045288-dljvnip7e3cl8t688ogsc82nk7fu2p54.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm2FBWlb5D2Wxi_rTCxfKKFfryD9n7abw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732417045288-dljvnip7e3cl8t688ogsc82nk7fu2p54.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
