@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Quizoholic</string>
+    <string name="signin_to_account">Sign in to your account</string>
+    <string name="already_have_an_account"><u>Already have an account?</u></string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="create_a_new_account">Create a new account</string>
+    <string name="create_a_new_account_underlined"><u>Create a new account</u></string>
+    <string name="google">google</string>
+    <string name="facebook">facebook</string>
+    <string name="username">username</string>
+    <string name="sign_up">Sign up</string>
+</resources>
