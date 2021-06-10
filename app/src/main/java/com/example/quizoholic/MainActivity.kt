@@ -4,24 +4,19 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
+import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quizoholic.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    private lateinit var mAuth:FirebaseAuth
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,48 +24,56 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         mAuth = FirebaseAuth.getInstance()
-        val firebaseUser:FirebaseUser? = mAuth.currentUser
-        if(firebaseUser != null) {
-            Log.d("IsUserSet","true")
+        val firebaseUser: FirebaseUser? = mAuth.currentUser
+        if (firebaseUser != null) {
+            Log.d("IsUserSet", "true")
         } else {
             startActivity(Intent(this, SignInActivity::class.java))
             finish()
         }
-
-        setSupportActionBar(binding.appBarMain.toolbar)
-
-        binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-        val drawerLayout: DrawerLayout = binding.drawerLayout
-        val navView: NavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
-            ), drawerLayout
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-
-        binding.logout.setOnClickListener{
-            mAuth.signOut()
-            startActivity(Intent(this@MainActivity, SignInActivity::class.java))
-            finish()
-        }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
-        return true
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val menuInflater = menuInflater
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.view_profile -> {
+                if (mAuth.currentUser != null) {
+                    startActivity(Intent(this@MainActivity, UserProfile::class.java))
+                    finish()
+                } else {
+                    Toast.makeText(this@MainActivity, "Please login first", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
+            R.id.exit -> {
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle(getString(R.string.exit))
+                builder.setMessage(getString(R.string.exit_confirm_msg))
+                builder.setPositiveButton(getString(R.string.yes)) { _, _ ->
+                    run {
+                        moveTaskToBack(true)
+                        android.os.Process.killProcess(android.os.Process.myPid())
+                        exitProcess(1)
+                    }
+                }
+                builder.setNegativeButton(getString(R.string.no)) { dialogInterface, _ ->
+                    dialogInterface.cancel()
+                }
+                val alertDialog = builder.create()
+                alertDialog.setCancelable(false)
+                alertDialog.show()
+            }
+            R.id.logout -> {
+                mAuth.signOut()
+                startActivity(Intent(this@MainActivity, SignInActivity::class.java))
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

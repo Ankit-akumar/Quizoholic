@@ -13,7 +13,17 @@
     <string name="sign_up">Sign up</string>
     <string name="confirm_password">Confirm password</string>
     <string name="password_confirm_password_not_same">Password and Confirm Password should be same</string>
+    <string name="username_error_invalid_length">Username must be 3 to 30 characters long</string>
+    <string name="username_error_invalid_format">Username must contain only letters, underscores and digits</string>
+    <string name="password_error_invalid_length">Password must be 6 to 30 characters long</string>
+    <string name="password_error_invalid_format">Password must contain at least one letter, one special symbol and one digit</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="username_whitespaces_not_allowed">Username must not contain whitespaces</string>
+    <string name="password_whitespaces_not_allowed">Password must not contain whitespaces</string>
 
+    <string name="exit_confirm_msg">Are you sure you want to exit the application?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -26,4 +36,12 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="profile">Profile</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="logout">Logout</string>
+    <string name="exit">Exit</string>
+    <string name="best_score">Best Score:</string>
+    <string name="zero">0</string>
+    <string name="total_score">Total Score:</string>
+    <string name="edit_profile">edit profile button</string>
 </resources>
