@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quizoholic.databinding.ActivityMainBinding
+import com.example.quizoholic.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlin.system.exitProcess
@@ -44,7 +45,6 @@ class MainActivity : AppCompatActivity() {
             R.id.view_profile -> {
                 if (mAuth.currentUser != null) {
                     startActivity(Intent(this@MainActivity, UserProfile::class.java))
-                    finish()
                 } else {
                     Toast.makeText(this@MainActivity, "Please login first", Toast.LENGTH_SHORT)
                         .show()

@@ -24,6 +24,7 @@
     <string name="exit_confirm_msg">Are you sure you want to exit the application?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="something_went_wrong">Something went wrong</string>
 
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -44,4 +45,5 @@
     <string name="zero">0</string>
     <string name="total_score">Total Score:</string>
     <string name="edit_profile">edit profile button</string>
+    <string name="general_knowledge">General Knowledge</string>
 </resources>
