@@ -11,10 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Quizoholic">
-        <activity android:name=".UserProfile"
-            android:theme="@style/CustomNoActionBarTheme"/>
-        <activity android:name=".MainActivity"
-            android:label=""/>
+        <activity android:name=".QuestionsActivity" />
+        <activity
+            android:name=".UserProfile"
+            android:theme="@style/CustomNoActionBarTheme" />
+        <activity
+            android:name=".MainActivity"
+            android:label="" />
         <activity
             android:name=".SignUpActivity"
             android:theme="@style/CustomNoActionBarTheme" />

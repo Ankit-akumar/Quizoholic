@@ -8,7 +8,9 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.quizoholic.databinding.ActivityMainBinding
 import com.example.quizoholic.models.Quiz
 import com.example.quizoholic.models.User
@@ -20,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var quizList: ArrayList<Quiz>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,10 +38,13 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
-        val quizList = Quiz().createQuizList()
-        val adapter = QuizAdapter(quizList)
+        quizList = Quiz().createQuizList()
+        val adapter = QuizAdapter(quizList, this)
         binding.rvQuizzes.adapter = adapter
-        binding.rvQuizzes.layoutManager = LinearLayoutManager(this)
+//        binding.rvQuizzes.layoutManager = LinearLayoutManager(this)
+        val gridLayoutManager =
+            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        binding.rvQuizzes.layoutManager = gridLayoutManager
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
