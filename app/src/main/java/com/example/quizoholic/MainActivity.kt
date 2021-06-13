@@ -8,7 +8,9 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quizoholic.databinding.ActivityMainBinding
+import com.example.quizoholic.models.Quiz
 import com.example.quizoholic.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -32,6 +34,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SignInActivity::class.java))
             finish()
         }
+
+        val quizList = Quiz().createQuizList()
+        val adapter = QuizAdapter(quizList)
+        binding.rvQuizzes.adapter = adapter
+        binding.rvQuizzes.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

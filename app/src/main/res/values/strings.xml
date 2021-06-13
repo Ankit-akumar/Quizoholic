@@ -46,4 +46,10 @@
     <string name="total_score">Total Score:</string>
     <string name="edit_profile">edit profile button</string>
     <string name="general_knowledge">General Knowledge</string>
+    <string name="science_and_nature">Science And Nature</string>
+    <string name="mathematics">Mathematics</string>
+    <string name="computers">Computers</string>
+    <string name="sports">Sports</string>
+    <string name="gadgets">Gadgets</string>
+    <string name="history">History</string>
 </resources>

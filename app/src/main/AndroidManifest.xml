@@ -13,7 +13,8 @@
         android:theme="@style/Theme.Quizoholic">
         <activity android:name=".UserProfile"
             android:theme="@style/CustomNoActionBarTheme"/>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:label=""/>
         <activity
             android:name=".SignUpActivity"
             android:theme="@style/CustomNoActionBarTheme" />

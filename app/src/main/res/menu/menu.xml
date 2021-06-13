@@ -4,9 +4,6 @@
         android:id="@+id/view_profile"
         android:title="@string/profile" />
     <item
-        android:id="@+id/switch_dark_mode"
-        android:title="@string/dark_mode" />
-    <item
         android:id="@+id/logout"
         android:title="@string/logout" />
     <item
