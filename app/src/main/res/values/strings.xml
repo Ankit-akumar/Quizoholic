@@ -52,4 +52,7 @@
     <string name="sports">Sports</string>
     <string name="gadgets">Gadgets</string>
     <string name="history">History</string>
+    <string name="submit">Submit</string>
+    <string name="next">Next</string>
+    <string name="clear_response"><u>Clear Response</u></string>
 </resources>

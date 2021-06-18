@@ -31,9 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
         val firebaseUser: FirebaseUser? = mAuth.currentUser
-        if (firebaseUser != null) {
-            Log.d("IsUserSet", "true")
-        } else {
+        if (firebaseUser == null) {
             startActivity(Intent(this, SignInActivity::class.java))
             finish()
         }
@@ -41,7 +39,6 @@ class MainActivity : AppCompatActivity() {
         quizList = Quiz().createQuizList()
         val adapter = QuizAdapter(quizList, this)
         binding.rvQuizzes.adapter = adapter
-//        binding.rvQuizzes.layoutManager = LinearLayoutManager(this)
         val gridLayoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.rvQuizzes.layoutManager = gridLayoutManager
