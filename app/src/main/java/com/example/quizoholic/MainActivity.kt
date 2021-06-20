@@ -2,18 +2,14 @@ package com.example.quizoholic
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.quizoholic.databinding.ActivityMainBinding
 import com.example.quizoholic.models.Quiz
-import com.example.quizoholic.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlin.system.exitProcess
@@ -31,9 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
         val firebaseUser: FirebaseUser? = mAuth.currentUser
-        if (firebaseUser != null) {
-            Log.d("IsUserSet", "true")
-        } else {
+        if (firebaseUser == null) {
             startActivity(Intent(this, SignInActivity::class.java))
             finish()
         }
@@ -41,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         quizList = Quiz().createQuizList()
         val adapter = QuizAdapter(quizList, this)
         binding.rvQuizzes.adapter = adapter
-//        binding.rvQuizzes.layoutManager = LinearLayoutManager(this)
         val gridLayoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.rvQuizzes.layoutManager = gridLayoutManager

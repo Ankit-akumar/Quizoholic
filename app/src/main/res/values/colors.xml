@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#c034ab</color>
+    <color name="purple_200">#AB47BC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="facebook_color">#4267B2</color>
+    <color name="gray">#808080</color>
+
+    <color name="green">#4CAF50</color>
+    <color name="red">#F44336</color>
 </resources>

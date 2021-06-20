@@ -15,6 +15,7 @@
         <!-- Customize your theme here. -->
         <item name="fontFamily">@font/poppins</item>
         <item name="android:textColor">@color/black</item>
+        <item name="colorSurface">@color/white</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -40,6 +41,7 @@
         <!-- Customize your theme here. -->
         <item name="fontFamily">@font/poppins</item>
         <item name="android:textColor">@color/black</item>
+        <item name="colorSurface">@color/white</item>
     </style>
 
     <style name="Theme.Quizoholic.NoActionBar">
