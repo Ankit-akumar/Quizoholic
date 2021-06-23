@@ -32,8 +32,9 @@ class UserProfile : AppCompatActivity() {
                     Picasso.get().load(user.profilePic)
                         .placeholder(R.drawable.ic_baseline_account_circle_24)
                         .into(binding.profileImage)
-                    binding.tvBestScore.text = user.bestScore
-                    binding.tvTotalScore.text = user.totalScore
+                    binding.tvBestScore.text = user.bestScore.toString()
+                    binding.tvTotalScore.text = user.totalScore.toString()
+                    binding.tvTotalQuizzes.text = user.totalQuizzes.toString()
                 }
 
                 override fun onCancelled(databaseError: DatabaseError) {
