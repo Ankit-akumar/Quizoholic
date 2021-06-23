@@ -55,4 +55,10 @@
     <string name="submit">Submit</string>
     <string name="next">Next</string>
     <string name="clear_response"><u>Clear Response</u></string>
+    <string name="people_evaluating_results">People evaluating results</string>
+    <string name="continue_game">Continue</string>
+    <string name="_0">0</string>
+    <string name="correct">Correct</string>
+    <string name="incorrect">Incorrect</string>
+    <string name="unattempted">Unattempted</string>
 </resources>

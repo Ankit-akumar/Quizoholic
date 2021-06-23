@@ -23,7 +23,10 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mDatabase: FirebaseDatabase
     private lateinit var mGoogleSignInClient: GoogleSignInClient
-    private val RC_SINGIN = 65
+
+    companion object {
+        const val RC_SING_IN = 65
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,8 +60,6 @@ class SignInActivity : AppCompatActivity() {
             ).addOnCompleteListener {
                 binding.progressBar.visibility = View.INVISIBLE
                 if (it.isSuccessful) {
-                    val firebaseUser = mAuth.currentUser
-
                     startActivity(Intent(this@SignInActivity, MainActivity::class.java))
                     finish()
                 } else {
@@ -78,14 +79,14 @@ class SignInActivity : AppCompatActivity() {
 
     private fun signIn() {
         val signInIntent = mGoogleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SINGIN)
+        startActivityForResult(signInIntent, RC_SING_IN)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        if (requestCode == RC_SINGIN) {
+        if (requestCode == RC_SING_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 // Google Sign In was successful, authenticate with Firebase
@@ -112,7 +113,7 @@ class SignInActivity : AppCompatActivity() {
                         username = firebaseUser.displayName.toString(),
                         email = firebaseUser.email.toString(),
                         profilePic = firebaseUser.photoUrl.toString()
-                        )
+                    )
 
                     mDatabase.reference.child("Users").child(user.userid).setValue(user)
 

@@ -8,12 +8,20 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.quizoholic.databinding.ActivityQuestionsBinding
 
 class QuestionsActivity : AppCompatActivity() {
+
+    companion object {
+        const val CORRECT_RESPONSE = "correct responses"
+        const val NO_RESPONSE = "no responses"
+    }
+
     private lateinit var binding: ActivityQuestionsBinding
     private val listOfQuestions = Constants.questionsList
 
-    //********************************************//
     private var currentPosition = 0
     private var selectedOption = -1
+
+    private var correctResponses = 0
+    private var noResponse = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +35,12 @@ class QuestionsActivity : AppCompatActivity() {
         binding.btnSubmit.setOnClickListener {
             if (binding.btnSubmit.text == getString(R.string.submit)) { // in submit mode
                 setCorrectOptionBackground()
-                if (selectedOption != -1 && listOfQuestions[currentPosition].correct_answer != selectedOption) {
-                    setInCorrectOptionSelectedBackground()
-                }
+                // if option was selected then check if it is correct else consider no response
+                if (selectedOption != -1) {
+                    if (listOfQuestions[currentPosition].correct_answer != selectedOption)
+                        setInCorrectOptionSelectedBackground()
+                    else ++correctResponses
+                } else ++noResponse
                 binding.btnSubmit.text = getString(R.string.next)
             } else { // if already submitted
                 currentPosition++
@@ -41,7 +52,11 @@ class QuestionsActivity : AppCompatActivity() {
                     binding.progressBar.progress += 10
                 } else {
                     Constants.questionsList.clear()
-                    startActivity(Intent(this, MainActivity::class.java))
+                    val intent = Intent(this, ResultActivity::class.java)
+                    intent.putExtra(CORRECT_RESPONSE, correctResponses)
+                    intent.putExtra(NO_RESPONSE, noResponse)
+                    startActivity(intent)
+                    finish()
                 }
             }
         }
