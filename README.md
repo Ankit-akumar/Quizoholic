@@ -16,9 +16,11 @@ Quizoholic is a fun way to kill some time and boost your knowledge. You can lear
 
 - [x] Categorized quizzes offer the user a wide variety of choices.
 
-- [ ] Get a detailed assessment of the quizzes played.
+- [x] User gets a list of random questons based on the category selected.
 
-- [x] Switch between light and dark mode.
+- [x] Get a detailed assessment of the quiz played.
+
+- [ ] Switch between light and dark mode.
 
 # Screenshots
 
